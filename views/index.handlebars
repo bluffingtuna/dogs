@@ -1,0 +1,46 @@
+<h1>Dogs!</h1>
+
+<h2>Dogs that are not adopted</h2>
+
+<ul>
+	{{#each dogs}}
+		{{#unless this.adopted}}
+			<li>
+				{{this.name}}
+				{{this.breed}}
+				<form action="/{{this.name}}?_method=PUT" method="POST">
+
+					<button type="submit">Adopted</button>
+				</form>
+			</li>
+		{{/unless}}
+	{{/each}}
+</ul>
+
+<h2>Dogs that are adopted</h2>
+
+<ul>
+	{{#each dogs}}
+		{{#if this.adopted}}
+			<li>
+				{{this.name}}
+				{{this.breed}}
+			</li>
+		{{/if}}
+	{{/each}}
+</ul>
+
+<h2>Add a Dog</h2>
+
+<form class="create-update-form" action="/" method="POST">
+	<div class="form-group">
+		<label for="dog">Dog Name:</label>
+		<input type="text" name="name">
+	</div>
+
+	<div class="form-group">
+		<label for="bree">Breed</label>
+		<input type="text" name="breed">
+	</div>
+	<button type="submit">Add Dog</button>
+</form
