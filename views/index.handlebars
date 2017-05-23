@@ -9,12 +9,16 @@
 				<ul>
 					{{#each dogs}}
 						{{#unless this.adopted}}
-							<li class="doglist">
-								<p>{{this.name}}
+							<li class="input-group">
+								<p class="form-control">{{this.name}}
 								{{this.breed}}</p>
+								<span class="input-group-btn">
 								<form action="/{{this.name}}?_method=PUT" method="POST">
-									<button type="submit" class="btn btn-primary">Adopt</button>
+									<button type="submit" class="btn btn-secondary">Adopt</button>
 								</form>
+								</span>
+
+
 							</li>
 						{{/unless}}
 					{{/each}}
@@ -39,15 +43,15 @@
 
 				<form class="create-update-form" action="/" method="POST">
 					<div class="form-group row">
-						<label for="dog" class="col-4 col-form-label">Dog Name:</label>
-						<div class="col-8">
+						<label for="dog" class="col-3 col-form-label">Dog Name:</label>
+						<div class="col-9">
 						<input class="form-control" type="text" name="name">
 						</div>
 					</div>
 
 					<div class="form-group row">
-						<label for="bree" class="col-4 col-form-label"> Breed: </label>
-						<div class="col-8">
+						<label for="bree" class="col-3 col-form-label"> Breed: </label>
+						<div class="col-9">
 						<input class="form-control" type="text" name="breed">
 						</div>
 					</div>
